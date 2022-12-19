@@ -21,6 +21,7 @@ public class Practice001 {
 class Solution {
 	public int solution(int n) {
 		int answer = 0;
+		answer = addNumber(numberToString(n));
 		return answer;
 	}
 	
