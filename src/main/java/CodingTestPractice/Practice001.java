@@ -28,4 +28,12 @@ class Solution {
 		String result = Integer.toString(n);
 		return result;
 	}
+	
+	private int addNumber(String s) {
+		int result = 0;
+		for (int i = 0; i < s.length(); i++) {
+			result += s.charAt(i) - 48;
+		}
+		return result;
+	}
 }
