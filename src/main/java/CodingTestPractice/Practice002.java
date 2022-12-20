@@ -53,4 +53,20 @@ class Solution {
 		}
 		return numberList;
 	}
+
+	private int changeNumber(String token) {
+		if (token.equals("-")) {
+			return -1;
+		}
+		if (token.equals("+")) {
+			return 1;
+		}
+		if (token.equals("=")) {
+			return 0;
+		}
+		if (token.charAt(0) == '-') {
+			return Integer.parseInt(token.substring(1)) * -1;
+		}
+		return Integer.parseInt(token);
+	}
 }
