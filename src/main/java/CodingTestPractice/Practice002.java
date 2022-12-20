@@ -41,6 +41,7 @@ class Solution {
 		List<Integer> numberList = new ArrayList<>();
 		for (int i = 0; i < quiz.length; i++) {
 			numberList = makeNumberList(quiz[i]);
+			int total = calculationList(numberList);
 		}
 		return answer;
 	}
@@ -68,5 +69,17 @@ class Solution {
 			return Integer.parseInt(token.substring(1)) * -1;
 		}
 		return Integer.parseInt(token);
+	}
+
+	private int calculationList(List<Integer> numberList) {
+		int result = 0;
+		for (int i = 0; i < numberList.size(); i += 2) {
+			if (i == 0) {
+				result += numberList.get(i);
+				continue;
+			}
+			result += numberList.get(i) * numberList.get(i - 1);
+		}
+		return result;
 	}
 }
