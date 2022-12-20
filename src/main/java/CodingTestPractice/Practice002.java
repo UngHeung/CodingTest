@@ -42,6 +42,7 @@ class Solution {
 		for (int i = 0; i < quiz.length; i++) {
 			numberList = makeNumberList(quiz[i]);
 			int total = calculationList(numberList);
+			answer[i] = checkOX(total, numberList.get(numberList.size() - 1));
 		}
 		return answer;
 	}
@@ -81,5 +82,12 @@ class Solution {
 			result += numberList.get(i) * numberList.get(i - 1);
 		}
 		return result;
+	}
+
+	private String checkOX(int total, int number) {
+		if (total == number) {
+			return "O";
+		}
+		return "X";
 	}
 }
