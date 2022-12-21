@@ -47,4 +47,11 @@ class Solution {
 		}
 		return checkCount(wordLength, lengthCount);
 	}
+	
+	private boolean checkCount(int wordLength, int lengthCount) {
+		if (wordLength == lengthCount) {
+			return true;
+		}
+		return false;
+	}
 }
