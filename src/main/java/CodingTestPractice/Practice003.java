@@ -36,8 +36,9 @@ class Solution {
 		return answer;
 	}
 	
+	final String[] possibleWordList = {"aya", "woo", "ye", "ma"};
+	
 	private boolean checkWord(String word) {
-		String[] possibleWordList = {"aya", "woo", "ye", "ma"};
 		int wordLength = word.length();
 		int lengthCount = 0;
 		for (String possibleWord : possibleWordList) {
