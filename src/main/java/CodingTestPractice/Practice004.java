@@ -1,7 +1,9 @@
 package CodingTestPractice;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Practice004 {
 }
@@ -13,6 +15,11 @@ class Solution {
 		Map<String, Integer> userIndex = new HashMap<>();
 		for (int i = 0; i < id_list.length; i++) {
 			userIndex.put(id_list[i], i);
+		}
+		
+		Set<String> reportList = new HashSet<>();
+		for (String element: report) {
+			reportList.add(element);
 		}
 		return answer;
 	}
