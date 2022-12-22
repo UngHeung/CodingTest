@@ -1,7 +1,9 @@
 package CodingTestPractice;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,6 +22,17 @@ class Solution {
 		Set<String> reportList = new HashSet<>();
 		for (String element: report) {
 			reportList.add(element);
+		}
+		
+		List<String> sanctionList = new ArrayList<>();
+		int[] reportCount = new int[id_list.length];
+		String[] array = new String[2];
+		for (String element : reportList) {
+			array = element.split(" ");
+			reportCount[userIndex.get(array[1])]++;
+			if (reportCount[userIndex.get(array[1])] >= k) {
+				sanctionList.add(array[1]);
+			}
 		}
 		return answer;
 	}
