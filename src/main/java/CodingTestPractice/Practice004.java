@@ -34,6 +34,18 @@ class Solution {
 				sanctionList.add(array[1]);
 			}
 		}
+		
+		for (int i = 0; i < id_list.length; i++) {
+			for (String element : reportList) {
+				array = element.split(" ");
+				if (array[0].equals(id_list[i])) {
+					if(sanctionList.contains(array[1])) {
+						answer[i]++;
+						continue;
+					}
+				}
+			}
+		}
 		return answer;
 	}
 }
