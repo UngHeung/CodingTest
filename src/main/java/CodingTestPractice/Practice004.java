@@ -14,10 +14,7 @@ class Solution {
 	public int[] solution(String[] id_list, String[] report, int k) {
 		int[] answer = new int[id_list.length];
 		
-		Map<String, Integer> userIndex = new HashMap<>();
-		for (int i = 0; i < id_list.length; i++) {
-			userIndex.put(id_list[i], i);
-		}
+		giveUserIndex(id_list);
 		
 		Set<String> reportList = new HashSet<>();
 		for (String element: report) {
@@ -47,5 +44,13 @@ class Solution {
 			}
 		}
 		return answer;
+	}
+	
+	private Map<String, Integer> userIndex = new HashMap<>();
+	
+	private void giveUserIndex(String[] id_list) {
+		for (int i = 0; i < id_list.length; i++) {
+			userIndex.put(id_list[i], i);
+		}
 	}
 }
