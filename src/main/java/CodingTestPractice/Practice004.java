@@ -15,11 +15,7 @@ class Solution {
 		int[] answer = new int[id_list.length];
 		
 		giveUserIndex(id_list);
-		
-		Set<String> reportList = new HashSet<>();
-		for (String element: report) {
-			reportList.add(element);
-		}
+		makeReportList(report);
 		
 		List<String> sanctionList = new ArrayList<>();
 		int[] reportCount = new int[id_list.length];
@@ -47,10 +43,17 @@ class Solution {
 	}
 	
 	private Map<String, Integer> userIndex = new HashMap<>();
+	private Set<String> reportList = new HashSet<>();
 	
 	private void giveUserIndex(String[] id_list) {
 		for (int i = 0; i < id_list.length; i++) {
 			userIndex.put(id_list[i], i);
+		}
+	}
+	
+	private void makeReportList(String[] report) {
+		for (String element : report) {
+			reportList.add(element);
 		}
 	}
 }
