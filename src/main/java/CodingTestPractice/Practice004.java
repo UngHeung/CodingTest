@@ -37,4 +37,12 @@ class Solution {
 			reportedIdMap.get(array[1]).add(array[0]);
 		}
 	}
+	
+	private int reportCount(String id, int k) {
+		int result = 0;
+		if (reportedIdMap.get(id).size() >= k) {
+			result++;
+		}
+		return result;
+	}
 }
