@@ -15,6 +15,7 @@ class Solution {
 	public int[] solution(String[] id_list, String[] report, int k) {
 		int[] answer = new int[id_list.length];
 		setMap(id_list);
+		addReportMap(report);
 		return answer;
 	}
 
@@ -25,6 +26,15 @@ class Solution {
 			reportedIdSet = new HashSet<>();
 			reportIdMap.put(id, reportIdSet);
 			reportedIdMap.put(id, reportedIdSet);
+		}
+	}
+	
+	private void addReportMap(String[] report) {
+		String[] array;
+		for (String element : report) {
+			array = element.split(" ");
+			reportIdMap.get(array[0]).add(array[1]);
+			reportedIdMap.get(array[1]).add(array[0]);
 		}
 	}
 }
