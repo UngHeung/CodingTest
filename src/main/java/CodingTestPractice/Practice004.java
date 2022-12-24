@@ -16,6 +16,9 @@ class Solution {
 		int[] answer = new int[id_list.length];
 		setMap(id_list);
 		addReportMap(report);
+		for (int i = 0; i < id_list.length; i++) {
+			answer[i] = mailCount(id_list[i], k);
+		}
 		return answer;
 	}
 
@@ -36,6 +39,14 @@ class Solution {
 			reportIdMap.get(array[0]).add(array[1]);
 			reportedIdMap.get(array[1]).add(array[0]);
 		}
+	}
+	
+	private int mailCount(String id, int k) {
+		int result = 0;
+		for (String element : reportIdMap.get(id)) {
+			result += reportCount(element, k);
+		}
+		return result;
 	}
 	
 	private int reportCount(String id, int k) {
