@@ -1,9 +1,7 @@
 package CodingTestPractice;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -11,49 +9,22 @@ public class Practice004 {
 }
 
 class Solution {
+	private Map<String, Set<String>> reportIdMap = new HashMap<>();
+	private Map<String, Set<String>> reportedIdMap = new HashMap<>();
+
 	public int[] solution(String[] id_list, String[] report, int k) {
 		int[] answer = new int[id_list.length];
-		
-		giveUserIndex(id_list);
-		makeReportList(report);
-		
-		List<String> sanctionList = new ArrayList<>();
-		int[] reportCount = new int[id_list.length];
-		String[] array = new String[2];
-		for (String element : reportList) {
-			array = element.split(" ");
-			reportCount[userIndex.get(array[1])]++;
-			if (reportCount[userIndex.get(array[1])] >= k) {
-				sanctionList.add(array[1]);
-			}
-		}
-		
-		for (int i = 0; i < id_list.length; i++) {
-			for (String element : reportList) {
-				array = element.split(" ");
-				if (array[0].equals(id_list[i])) {
-					if(sanctionList.contains(array[1])) {
-						answer[i]++;
-						continue;
-					}
-				}
-			}
-		}
+		setMap(id_list);
 		return answer;
 	}
-	
-	private Map<String, Integer> userIndex = new HashMap<>();
-	private Set<String> reportList = new HashSet<>();
-	
-	private void giveUserIndex(String[] id_list) {
-		for (int i = 0; i < id_list.length; i++) {
-			userIndex.put(id_list[i], i);
-		}
-	}
-	
-	private void makeReportList(String[] report) {
-		for (String element : report) {
-			reportList.add(element);
+
+	private void setMap(String[] id_list) {
+		Set<String> reportIdSet, reportedIdSet;
+		for (String id : id_list) {
+			reportIdSet = new HashSet<>();
+			reportedIdSet = new HashSet<>();
+			reportIdMap.put(id, reportIdSet);
+			reportedIdMap.put(id, reportedIdSet);
 		}
 	}
 }
