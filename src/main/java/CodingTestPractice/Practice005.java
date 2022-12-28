@@ -11,6 +11,18 @@ class Solution {
 		for (int element : ingredient) {
 			str += element;
 		}
+		
+		int ingredientCount = ingredient.length;
+		int length = 0;
+		while (true) {
+			length = str.length();
+			str = str.replace("1231", "");
+			
+			if (length == str.length()) {
+				break;
+			}
+		}
+		
 		return answer;
 	}
 }
