@@ -23,6 +23,8 @@ class Solution {
 			}
 		}
 		
+		answer = (ingredientCount - length) / 4;
+		
 		return answer;
 	}
 }
