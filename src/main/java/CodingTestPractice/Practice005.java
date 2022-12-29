@@ -10,6 +10,9 @@ class Solution {
 	public int solution(int[] ingredient) {
 		int answer = 0;
 		
+		for (int element : ingredient) {
+			
+		}
 		answer = count;
 		return answer;
 	}
