@@ -28,4 +28,20 @@ class Solution {
 			checkGredient();
 		}
 	}
+	
+	private void checkGredient() {
+		if(hamberger.get(hamberger.size() - 1) == 1
+				&& hamberger.get(hamberger.size() - 2) == 3
+				&& hamberger.get(hamberger.size() - 3) == 2
+				&& hamberger.get(hamberger.size() - 4) == 1) {
+			packaging();
+		}
+	}
+	
+	private void packaging() {
+		for (int i = 0; i < 4; i++) {
+			hamberger.pop();
+		}
+		count++;
+	}
 }
