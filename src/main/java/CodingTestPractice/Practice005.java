@@ -11,7 +11,7 @@ class Solution {
 		int answer = 0;
 		
 		for (int element : ingredient) {
-			
+			stackHamberger(element);
 		}
 		answer = count;
 		return answer;
@@ -19,4 +19,13 @@ class Solution {
 	
 	private int count = 0;
 	private Stack<Integer> hamberger = new Stack<>();
+	
+	private void stackHamberger(int element) {
+		hamberger.push(element);
+		
+		if (hamberger.size() < 4) return;
+		if (hamberger.size() >= 4) {
+			checkGredient();
+		}
+	}
 }
