@@ -77,4 +77,18 @@ class Solution {
 		}
 		return result.toString();
 	}
+	
+	private Character comparisonScore(char indicatorA, char indicatorB) {
+		char result = 0;
+		if (indicatorMap.get(indicatorA) < indicatorMap.get(indicatorB)) {
+			result = indicatorB;
+		}
+		if (indicatorMap.get(indicatorB) < indicatorMap.get(indicatorA)) {
+			result = indicatorA;
+		}
+		if (indicatorMap.get(indicatorA) == indicatorMap.get(indicatorB)) {
+			result = comparisonCharacter(indicatorA, indicatorB);
+		}
+		return result;
+	}
 }
