@@ -44,6 +44,7 @@ class Solution {
 		for (int i = 0; i < survey.length; i++) {
 			setScore(survey[i], choices[i]);
 		}
+		answer = makeAnswer();
 		return answer;
 	}
 	
@@ -66,5 +67,14 @@ class Solution {
 		if (4 < choice) {
 			indicatorMap.put(typeB, indicatorMap.get(typeB) + score);
 		}
+	}
+
+	private String makeAnswer() {
+		StringBuilder result = new StringBuilder();
+		String indicator = "RTCFJMAN";
+		for (int i = 0; i < indicator.length(); i += 2) {
+			result.append(comparisonScore(indicator.charAt(i), indicator.charAt(i + 1)));
+		}
+		return result.toString();
 	}
 }
