@@ -41,7 +41,9 @@ class Solution {
 		String answer = "";
 		
 		setIndicator();
-		
+		for (int i = 0; i < survey.length; i++) {
+			setScore(survey[i], choices[i]);
+		}
 		return answer;
 	}
 	
@@ -52,5 +54,17 @@ class Solution {
 		indicatorMap.put('C', 0); indicatorMap.put('F', 0);
 		indicatorMap.put('J', 0); indicatorMap.put('M', 0);
 		indicatorMap.put('A', 0); indicatorMap.put('N', 0);
+	}
+	
+	private void setScore(String type, int choice) {
+		char typeA = type.charAt(0), typeB = type.charAt(1);
+		int score = Math.abs(choice - 4);
+		
+		if (choice < 4) {
+			indicatorMap.put(typeA, indicatorMap.get(typeA) + score);
+		}
+		if (4 < choice) {
+			indicatorMap.put(typeB, indicatorMap.get(typeB) + score);
+		}
 	}
 }
