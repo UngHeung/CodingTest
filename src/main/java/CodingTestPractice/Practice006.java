@@ -91,4 +91,15 @@ class Solution {
 		}
 		return result;
 	}
+	
+	private Character comparisonCharacter(char indicatorA, char indicatorB) {
+		char result = 0;
+		if (indicatorA < indicatorB) {
+			result = indicatorA;
+		}
+		if (indicatorB < indicatorA) {
+			result = indicatorB;
+		}
+		return result;
+	}
 }
