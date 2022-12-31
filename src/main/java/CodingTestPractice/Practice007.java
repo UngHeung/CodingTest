@@ -49,4 +49,14 @@ class Solution {
 		}
 		return false;
 	}
+	
+	private boolean checkContinuationPeriod(int index) {
+		if (recommendId.size() < 1) {
+			return true;
+		}
+		if (recommendId.get(recommendId.size() - 1) == '.') {
+			return false;
+		}
+		return true;
+	}
 }
