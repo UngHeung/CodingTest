@@ -33,6 +33,7 @@ class Solution {
 		}
 		checkPeriodLocation();
 		checkIdLength();
+		answer = makeRecommendId();
 		return answer;
 	}
 	
@@ -84,5 +85,13 @@ class Solution {
 			recommendId = recommendId.subList(0, 15);
 		}
 		checkPeriodLocation();
+	}
+	
+	private String makeRecommendId() {
+		StringBuilder result = new StringBuilder();
+		for (char element : recommendId) {
+			result.append(element);
+		}
+		return result.toString();
 	}
 }
