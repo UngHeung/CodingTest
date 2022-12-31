@@ -32,6 +32,7 @@ class Solution {
 			}
 		}
 		checkPeriodLocation();
+		checkIdLength();
 		return answer;
 	}
 	
@@ -70,5 +71,18 @@ class Solution {
 				recommendId.remove(recommendId.size() - 1);
 			}
 		}
+	}
+	
+	private void checkIdLength() {
+		if (recommendId.size() == 0) {
+			recommendId.add('a');
+		}
+		while (recommendId.size() < 3) {
+			recommendId.add(recommendId.get(recommendId.size() - 1));
+		}
+		if (15 < recommendId.size()) {
+			recommendId = recommendId.subList(0, 15);
+		}
+		checkPeriodLocation();
 	}
 }
