@@ -31,6 +31,7 @@ class Solution {
 				recommendId.add(new_id.charAt(i));
 			}
 		}
+		checkPeriodLocation();
 		return answer;
 	}
 	
@@ -58,5 +59,16 @@ class Solution {
 			return false;
 		}
 		return true;
+	}
+	
+	private void checkPeriodLocation() {
+		if (recommendId.get(0) == '.') {
+			recommendId.remove(0);
+		}
+		if (1 <= recommendId.size()) {
+			if (recommendId.get(recommendId.size() - 1) == '.') {
+				recommendId.remove(recommendId.size() - 1);
+			}
+		}
 	}
 }
