@@ -26,6 +26,27 @@ class Solution {
 	public String solution(String new_id) {
 		String answer = "";
 		new_id = new_id.toLowerCase();
+		for (int i = 0; i < new_id.length(); i++) {
+			if (checkUnfitCharacter(new_id.charAt(i), i)) {
+				recommendId.add(new_id.charAt(i));
+			}
+		}
 		return answer;
+	}
+	
+	private boolean checkUnfitCharacter(char element, int index) {
+		if (element == '.') {
+			return checkContinuationPeriod(index);
+		}
+		if (element == '-' || element == '_') {
+			return true;
+		}
+		if ('0' <= element && element <= '9') {
+			return true;
+		}
+		if ('a' <= element && element <= 'z') {
+			return true;
+		}
+		return false;
 	}
 }
