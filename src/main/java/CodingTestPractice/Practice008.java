@@ -38,6 +38,9 @@ class Solution {
 						floor[move]++;
 						break;
 					}
+					bucket.push(board[floor[move]][move]);
+					floor[move]++;
+					break;
 				}
 			}
 		}
