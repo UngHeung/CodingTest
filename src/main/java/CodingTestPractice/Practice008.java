@@ -19,6 +19,13 @@ class Solution {
 		int[] floor = new int[board[0].length];
 		Stack<Integer> bucket = new Stack<>();
 		
+		for (int i = 0; i < moves.length; i++) {
+			int move = moves[i] - 1;
+			for (int j = 0; j < board[0].length; j++) {
+				if (floor[move] < board[0].length) {
+				}
+			}
+		}
 		return answer;
 	}
 }
