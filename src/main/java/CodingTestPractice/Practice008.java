@@ -32,6 +32,12 @@ class Solution {
 						floor[move]++;
 						break;
 					}
+					if (bucket.peek() == board[floor[move]][move]) {
+						bucket.pop();
+						answer+=2;
+						floor[move]++;
+						break;
+					}
 				}
 			}
 		}
