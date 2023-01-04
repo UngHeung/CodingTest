@@ -27,6 +27,11 @@ class Solution {
 						floor[move]++;
 						continue;
 					}
+					if (bucket.isEmpty()) {
+						bucket.push(board[floor[move]][move]);
+						floor[move]++;
+						break;
+					}
 				}
 			}
 		}
