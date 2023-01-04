@@ -16,38 +16,40 @@ public class Practice008 {
 class Solution {
 	public int solution(int[][] board, int[] moves) {
 		int answer = 0;
-		int[] floor = new int[board[0].length];
-		
+		floors = new int[board[0].length];
 		for (int i = 0; i < moves.length; i++) {
 			int move = moves[i] - 1;
-			answer += popCount(move, floor, board);
+			answer += popCount(move, board);
 		}
 		return answer;
 	}
 	
 	private Stack<Integer> bucket = new Stack<>();
+	private int[] floors;
 	
-	private int popCount(int move, int[] floor, int[][] board) {
+	private int popCount(int move, int[][] board) {
 		int result = 0;
 		for (int j = 0; j < board[0].length; j++) {
-			if (floor[move] < board[0].length) {
-				if (board[floor[move]][move] == 0) {
-					floor[move]++;
+			if (floors[move] < board[0].length) {
+				int doll = board[floors[move]][move];
+				
+				floors[move]++;
+				if (doll == 0) {
 					continue;
 				}
+				
 				if (bucket.isEmpty()) {
-					bucket.push(board[floor[move]][move]);
-					floor[move]++;
+					bucket.push(doll);
 					break;
 				}
-				if (bucket.peek() == board[floor[move]][move]) {
+				
+				if (bucket.peek() == doll) {
 					bucket.pop();
 					result += 2;
-					floor[move]++;
 					break;
 				}
-				bucket.push(board[floor[move]][move]);
-				floor[move]++;
+				
+				bucket.push(doll);
 				break;
 			}
 		}
