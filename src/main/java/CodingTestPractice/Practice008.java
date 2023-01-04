@@ -17,33 +17,40 @@ class Solution {
 	public int solution(int[][] board, int[] moves) {
 		int answer = 0;
 		int[] floor = new int[board[0].length];
-		Stack<Integer> bucket = new Stack<>();
 		
 		for (int i = 0; i < moves.length; i++) {
 			int move = moves[i] - 1;
-			for (int j = 0; j < board[0].length; j++) {
-				if (floor[move] < board[0].length) {
-					if (board[floor[move]][move] == 0) {
-						floor[move]++;
-						continue;
-					}
-					if (bucket.isEmpty()) {
-						bucket.push(board[floor[move]][move]);
-						floor[move]++;
-						break;
-					}
-					if (bucket.peek() == board[floor[move]][move]) {
-						bucket.pop();
-						answer+=2;
-						floor[move]++;
-						break;
-					}
+			answer += popCount(move, floor, board);
+		}
+		return answer;
+	}
+	
+	private Stack<Integer> bucket = new Stack<>();
+	
+	private int popCount(int move, int[] floor, int[][] board) {
+		int result = 0;
+		for (int j = 0; j < board[0].length; j++) {
+			if (floor[move] < board[0].length) {
+				if (board[floor[move]][move] == 0) {
+					floor[move]++;
+					continue;
+				}
+				if (bucket.isEmpty()) {
 					bucket.push(board[floor[move]][move]);
 					floor[move]++;
 					break;
 				}
+				if (bucket.peek() == board[floor[move]][move]) {
+					bucket.pop();
+					result += 2;
+					floor[move]++;
+					break;
+				}
+				bucket.push(board[floor[move]][move]);
+				floor[move]++;
+				break;
 			}
 		}
-		return answer;
+		return result;
 	}
 }
