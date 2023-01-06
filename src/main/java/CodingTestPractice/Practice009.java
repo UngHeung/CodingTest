@@ -51,4 +51,23 @@ class Solution {
 		}
 		return checkHandLocation(number, hand);
 	}
+	
+	private String checkHandLocation(int number, String hand) {
+		int leftHandInterval = Math.abs(number - leftHand) / 3 + Math.abs(number - leftHand) % 3;
+		int rightHandInterval = Math.abs(number - rightHand) / 3 + Math.abs(number - rightHand) % 3;
+		if (leftHandInterval > rightHandInterval) {
+			rightHand = number;
+			return "R";
+		}
+		if (rightHandInterval > leftHandInterval) {
+			leftHand = number;
+			return "L";
+		}
+		if (hand.equals("right")) {
+			rightHand = number;
+			return "R";
+		}
+		leftHand = number;
+		return "L";
+	}
 }
