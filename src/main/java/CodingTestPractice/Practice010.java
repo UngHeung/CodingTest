@@ -15,6 +15,7 @@ class Solution {
 			if (lotto == 0) {
 				countDeleteNumber++;
 			}
+			checkNumber(lotto);
 		}
 		return answer;
 	}
@@ -22,4 +23,10 @@ class Solution {
 	private int[] lottoNumbers = new int[46];
 	private int countDeleteNumber = 0;
 	private int countLotto = 0;
+	
+	private void checkNumber(int lotto) {
+		if (lottoNumbers[lotto] == 1) {
+			countLotto++;
+		}
+	}
 }
