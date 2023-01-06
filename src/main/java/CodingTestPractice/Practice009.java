@@ -30,9 +30,11 @@ public class Practice009 {
 class Solution {
 	public String solution(int[] numbers, String hand) {
 		String answer = "";
+		StringBuilder builder = new StringBuilder();
 		for (int number : numbers) {
-			answer += checkLeftOrRight(number, hand);
+			builder.append(checkLeftOrRight(number, hand));
 		}
+		answer = builder.toString();
 		return answer;
 	}
 	
