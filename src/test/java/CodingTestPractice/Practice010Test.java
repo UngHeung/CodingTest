@@ -2,6 +2,8 @@ package CodingTestPractice;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 public class Practice010Test {
@@ -21,16 +23,16 @@ public class Practice010Test {
 	
 	@Test
 	public void test01() {
-		assertEquals(sol.solution(lottos01, win_nums01), result01);
+		assertEquals(Arrays.toString(sol.solution(lottos01, win_nums01)), Arrays.toString(result01));
 	}
 	
 	@Test
 	public void test02() {
-		assertEquals(sol.solution(lottos02, win_nums02), result02);
+		assertEquals(Arrays.toString(sol.solution(lottos02, win_nums02)), Arrays.toString(result02));
 	}
 	
 	@Test
 	public void test03() {
-		assertEquals(sol.solution(lottos03, win_nums03), result03);
+		assertEquals(Arrays.toString(sol.solution(lottos03, win_nums03)), Arrays.toString(result03));
 	}
 }
