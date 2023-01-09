@@ -46,4 +46,13 @@ class Solution {
 			scores[index] = element - 48;
 		}
 	}
+	
+	private void checkArea(char element) {
+		if (element == 'D') {
+			scores[index] = (int) Math.pow(scores[index], 2);
+		}
+		if (element == 'T') {
+			scores[index] = (int) Math.pow(scores[index], 3);
+		}
+	}
 }
