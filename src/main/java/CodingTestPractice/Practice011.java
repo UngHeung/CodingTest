@@ -35,4 +35,15 @@ class Solution {
 			checkAward(element);
 		}
 	}
+	
+	private void checkNumber(char element) {
+		if (element == '0') {
+			if (scores[index] != 0) {
+				scores[index] *= 10;
+			}
+		}
+		if ('1' <= element && element <= '9') {
+			scores[index] = element - 48;
+		}
+	}
 }
