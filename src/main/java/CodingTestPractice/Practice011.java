@@ -55,4 +55,16 @@ class Solution {
 			scores[index] = (int) Math.pow(scores[index], 3);
 		}
 	}
+	
+	private void checkAward(char element) {
+		if (element == '*') {
+			scores[index - 1] *= 2;
+			if (0 < index - 1) {
+				scores[index - 2] *= 2;
+			}
+		}
+		if (element == '#') {
+			scores[index - 1] *= -1;
+		}
+	}
 }
