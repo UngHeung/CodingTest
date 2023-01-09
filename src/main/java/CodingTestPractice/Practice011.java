@@ -17,6 +17,9 @@ class Solution {
 		for (int i = 0; i < dartResult.length(); i++) {
 			scoreClassification(dartResult.charAt(i));
 		}
+		for (int score : scores) {
+			answer += score;
+		}
 		return answer;
 	}
 	
