@@ -1,0 +1,1 @@
+const solution=(a)=>a.filter((v,i)=>v!==a[i+1]);
